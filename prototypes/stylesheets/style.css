@@ -1,0 +1,52 @@
+.persona-logo {
+    letter-spacing: normal;
+    color: white;
+    opacity: .9;
+}
+.persona-card { 
+    width: 300px;
+    margin-right: 20px;
+    margin-bottom:20px;
+}
+
+.persona.fancy{
+    letter-spacing: normal;
+}
+
+.persona.h3{
+    margin-bottom: 10px;
+}
+
+.container-flex{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.full-height{
+    width:100vw;
+    height: 100vh;
+}
+
+.create.icon{
+    font-size: 2.5rem;
+}
+
+.circle{
+    border-radius:80px;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+.prose li{
+    list-style:disc;
+    list-style-position: inside;
+}
+.tags li{ 
+    display:inline-block;
+    margin-right: 5px;
+}

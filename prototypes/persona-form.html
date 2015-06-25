@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'/>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>  
+  <title>Persona</title>
+  <link href='stylesheets/kabu.min.css' rel='stylesheet' />
+  <link href='stylesheets/style.css' rel='stylesheet' />
+    <link href='stylesheets/jquery.nouislider.min.css' rel='stylesheet' />
+    <link href='stylesheets/jquery.nouislider.pips.min.css' rel='stylesheet' />
+    <link href='stylesheets/jquery.nouislider.all.css' rel='stylesheet' />
+</head>
+<body class='fill-denim'>
+  <div class='navbar dark fill-denim keyline-bottom col-sm-12 animate clearfix round'>
+  <div class='container-fluid contain'>
+    <nav class='col-sm-12 text-right pad1y contain clearfix noprint'>
+      <a class='logo pull-left text-left' href='#fakelink'><h3 class='dark fancy'>Persona</h3></a>
+      <div class='primary small strong row2'>                    
+        <a href='#fakelink' data-toggle='offcanvas' data-target='#create' class='fill-blue dark pad1 block round animate pull-right'>
+          <i class='dark quiet icon icon-pencil'></i>
+          <span class='dark'>Create New</span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+    <div class='container-fluid clearfix'>
+      <div class='pad2y contain col-sm-8 col-sm-offset-2'>
+          <div class='round contain clearfix fill-white pad'>
+              <div class='fill-navy row6'></div>
+  <form class='col-md-8 col-xs-12 pad2'>
+      #TODO - Add persona image upload
+    <fieldset>
+    <label for='name'>Fictional Name</label>
+    <input id='input1' type='text' class='stretch' />
+  </fieldset>
+  <fieldset>
+    <label for='role'>Job Title</label>
+    <input id='datepicker' type='text' class='stretch'/>
+  </fieldset>
+  <fieldset>
+    <label for='goals'>Primary Tasks</label>
+    <div class='stretch input_fields'>
+  <input type='text' id='tasks' name='mytext[]'>
+        <button class="add_field_button link">Add More Fields</button>
+</div>
+  </fieldset>
+      <fieldset>
+    <label for='motivators'>Motivators</label>
+    <div class='stretch checkbox'>
+  <input type='checkbox' id='motivators' checked='checked'>
+  <label for='motivators' class='small stretch icon icon-ok'>Social Recognition</label>
+</div>
+  </fieldset>
+<!--      Add labels on either end of the slider-->
+  <fieldset>
+    <label for='personality'>Introverted-Extroverted</label>
+      <div class='slider-ie'></div>
+  </fieldset>
+  <fieldset>
+    <label for='input5'>Describe this user in crisis</label>
+    <textarea id='input5' class='stretch'></textarea>
+  </fieldset>              
+</form>          
+</div>            
+
+        <div class='center small pad1y dark'>
+          Brought to you with <i class='icon icon-heart danger'></i> at Q1 Hackathon 2015. 
+        </div>
+      </div>
+        <div id='create' class='animate offcanvas-top pin-top full-height keyline-bottom fill-darken3'>
+            <div class='contain col-xs-12 col-md-6 col-md-offset-3 row12'>
+                <div class='pin-bottom hidden-xs col-md-10'>
+                <a href='#fakelink' class='col-xs-12 col-sm-6 col-md-3 block  dark center space-bottom pad2y'><i class='create fill-blue circle pad4 dark icon icon-briefcase'></i><h4 class='pad1 center block'>Create a Project</h4></a>
+                <a href='#fakelink' class='col-xs-12 col-sm-6 col-md-3 block dark center pin-right space-bottom pad2y'><i class='create fill-purple circle pad4 dark icon icon-user'></i><h4 class='pad1 center block'>Create a Persona</h4></a>
+                    <a class='link btn btn-link block center' href='#fakelink' data-toggle='offcanvas'>Maybe Later</a>
+                </div>
+                <div class='visible-xs'>
+                <a href='#fakelink' class='col-xs-12 col-sm-6  block dark center space-bottom pad2y'><i class='create fill-blue circle pad4 dark icon icon-briefcase'></i><h4 class='pad1 center block'>Create a Project</h4></a>
+                <a href='#fakelink' class='col-xs-12 col-sm-6  block dark center space-bottom pad2y'><i class='create fill-purple circle pad4 dark icon icon-user'></i><h4 class='pad1 center block'>Create a Persona</h4></a>
+                    <a class='link block center' href='#fakelink' data-dismiss='offcanvas'>Maybe Later</a>
+                </div>
+        </div>
+        </div>
+    </div><!-- ./content -->
+  
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' ></script>
+  <script src='javascripts/kabu.min.js'></script>
+  <script src='javascripts/site.js'></script>
+    <script src='javascripts/jquery.nouislider.min.js'></script>
+    <script>
+
+			 // On document ready, initialize noUiSlider.
+			$(function(){
+
+				$('.slider-ie').noUiSlider({
+					start: [ 50 ],
+					range: {
+						'min': 0,
+						'max': 100
+					}
+				});
+
+			});
+
+		</script>
+    <script>
+        $(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+    
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div><input type="text" name="mytext[]"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+        }
+    });
+    
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+    </script>
+
+</body>
+</html>
